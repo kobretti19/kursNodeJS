@@ -1,16 +1,20 @@
 {
-  "name": "nodeexpress",
+  "name": "nodeexpressdomasna",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon start"
   },
   "keywords": [],
-  "author": "Petroski Martin",
+  "author": "",
   "license": "ISC",
-  "description": "Node Express first lesson",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
   "dependencies": {
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "save": "^2.9.0"
   }
 }
