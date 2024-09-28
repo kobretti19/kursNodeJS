@@ -12,6 +12,7 @@ app.get("/f2c/:temperatura", (req, res) => {
   `);
 });
 app.get("/c2f/:temperatura", (req, res) => {
+  console.log(req.params);
   const stepeni = Number(req.params.temperatura);
   if (stepeni <= 10) {
     return res.send(`${stepeni}°C = ${c2f(stepeni)}°F 🥶
