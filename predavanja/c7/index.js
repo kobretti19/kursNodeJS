@@ -1,56 +1,81 @@
 // ja povikavme express aplikacijata sto ja instaliravme so npm install epxress
-const express = require('express');
+const express = require("express");
 
 //se kreira nova express aplikacija
 const app = express();
 
 //Rutite imaat parametri i tie se dinamicki ili staticki
-app.get('/zdravo', (req, res) => {
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.post("/zdravopost", (req, res) => {
+  console.log(req.body);
+
+  res.send("Zdravo od post metoda");
+});
+
+app.get("/zdravo", (req, res) => {
   const b = 1 + 1;
   res.send(`Zdravo svetu ${b}`);
 });
 
-app.get('/zdravo/:ime/:prezime', (req, res) => {
+app.get("/zdravo/:ime/:prezime", (req, res) => {
   console.log(req.params);
 
   res.send(`zdravo  ${req.params.ime} ${req.params.prezime}`);
 });
 
-app.get('/test', (req, res) => {
-  res.send('test');
+app.get("/test", (req, res) => {
+  res.send("test");
 });
 
-app.get('/pozdrav', (req, res) => {
-  res.send('pozdrav');
+app.get("/pozdrav", (req, res) => {
+  res.send("pozdrav");
 });
 
-app.get('/kalkulator/:op/:a/:b', (req, res) => {
+app.get("/kalkulator/:op/:a/:b", (req, res) => {
   console.log(req.params);
   switch (req.params.op) {
-    case 'sobiranje':
+    case "sobiranje":
       return res.send(`${Number(req.params.a) + Number(req.params.b)}`);
-    case 'odzemanje':
+    case "odzemanje":
       return res.send(`${Number(req.params.a) - Number(req.params.b)}`);
-    case 'mnozenje':
+    case "mnozenje":
       return res.send(`${Number(req.params.a) * Number(req.params.b)}`);
-    case 'delenje':
+    case "delenje":
       return res.send(`${Number(req.params.a) / Number(req.params.b)}`);
     default:
-      return res.send('Nepoznat operator');
+      return res.send("Nepoznat operator");
   }
 });
 
-app.get('/presmetaj/:name', (req, res) => {
+app.post("/calculator", (req, res) => {
+  console.log(req.body);
+  switch (req.body.operacija) {
+    case "sobiranje":
+      return res.send(`${req.body.a + req.body.b} `);
+    case "odzemanje":
+      return res.send(`${req.body.a - req.body.b} `);
+    case "mnozenje":
+      return res.send(`${req.body.a * req.body.b} `);
+    case "delenje":
+      return res.send(`${req.body.a / req.body.b} `);
+  }
+
+  res.send("Proverka");
+});
+
+app.get("/presmetaj/:name", (req, res) => {
   const name = req.params.name;
   const prezime = req.params.prezime;
   if (!name) {
-    res.send('Invalid url');
+    res.send("Invalid url");
   }
 
   const brojNaBukvi = name.length;
-  const eParen = brojNaBukvi % 2 === 0 ? 'da' : 'ne';
-  const bukviArray = name.split('');
-  const samoglaski = ['a', 'e', 'i', 'o', 'u'];
+  const eParen = brojNaBukvi % 2 === 0 ? "da" : "ne";
+  const bukviArray = name.split("");
+  const samoglaski = ["a", "e", "i", "o", "u"];
 
   let samoglaskiBroj = 0;
   bukviArray.forEach((bukva) => {
@@ -60,12 +85,14 @@ app.get('/presmetaj/:name', (req, res) => {
   });
 
   const soglaskiBroj = brojNaBukvi - samoglaskiBroj;
-  res.send(`paren: ${eParen}, karakteri: ${brojNaBukvi}, soglaski: ${soglaskiBroj}, samoglaski: ${samoglaskiBroj}`);
+  res.send(
+    `paren: ${eParen}, karakteri: ${brojNaBukvi}, soglaski: ${soglaskiBroj}, samoglaski: ${samoglaskiBroj}`
+  );
 });
 
 app.listen(10000, (err) => {
   if (err) return console.log(err);
-  console.log('Server started successfullyy on port 10000');
+  console.log("Server started successfullyy on port 10000");
 });
 
 //? Za domasna ruta  /f2c/:temperatura // na ova url da transformira farenhajt vo celzius
