@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akteri</title>
+  </head>
+  <body>
+    <a href="http://localhost:10000/ruta/homepage">HOMEPAGE</a>
+    <a href="http://localhost:10000/ruta/akteri">AKTERI</a>
+
+    <table border="1" width="100%">
+      <tr>
+        <th>Ime</th>
+        <th>Zanr</th>
+      </tr>
+      <% filmovi.forEach(s => { %>
+      <tr>
+        <td><%= s.ime %></td>
+        <td><%= s.zanr %></td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>
