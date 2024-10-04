@@ -7,7 +7,7 @@ const {
   postTest3,
   postTest4,
 } = require("./controller/rutiranje");
-// const postTest1 = require("./controller/rutiranje");
+
 app.get("/vezba", getTest);
 app.post("/vezba", getTest);
 app.post("/vezba1", postTest1);

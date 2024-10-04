@@ -25,7 +25,17 @@ const bmiCalculator = async (req, res) => {
   res.send(response);
 };
 // const calculateForce = async();
+const getCalculator = async (req, res) => {
+  try {
+    const output = await parseTemplate("calculator_form.html");
+    res.send(output);
+  } catch (err) {
+    res.status(500).send("Internal error");
+  }
+};
+const postCalculator = async (req, res) => {};
 
 module.exports = {
   bmiCalculator,
+  getCalculator,
 };
