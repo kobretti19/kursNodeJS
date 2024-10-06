@@ -1,0 +1,16 @@
+{
+  "name": "domasna7",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Petroski Martin",
+  "license": "ISC",
+  "description": "Homework practice some app.get and app.post methods",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0"
+  }
+}

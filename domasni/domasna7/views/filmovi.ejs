@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOMEPAGE</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>MOVIES</h1>
+      <ul>
+        <li><a href="/ruta/homepage">HOMEPAGE</a></li>
+        <li><a href="/ruta/akteri">ACTORS</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="container_form">
+        <form action="/ruta/filmovi" method="post">
+          <label for="poster">poster</label>
+          <input type="text" name="poster" />
+          <label for="title">NAME</label>
+          <input type="text" name="title" required />
+          <label for="year">YEAR</label>
+          <input type="text" name="year" />
+          <label for="genre">genre</label>
+          <input type="text" name="genre" />
+          <label for="actors">actors</label>
+          <input type="text" name="actors" />
+          <label for="boxOffice">boxOffice</label>
+          <input type="text" name="boxOffice" />
+          <button type="submit">ADD MOVIE</button>
+        </form>
+      </div>
+      <div class="table-container">
+        <table border="1" width="100%">
+          <tr>
+            <th>ID</th>
+            <th>poster</th>
+            <th>NAME</th>
+            <th>YEAR</th>
+            <th>genre</th>
+            <th>actors</th>
+            <th>boxOffice</th>
+          </tr>
+          <% filmovi.forEach(s => { %>
+            <tr>
+              <td><%= s.id %></td>
+              <td><img src="<%= s.poster %>" alt="" border=3 height=100 width=100></img></td>
+              <td><%= s.title %></td>
+              <td><%= s.year %></td>
+              <td><%= s.genre %></td>
+              <td><%= s.actors %></td>
+              <td><%= s.boxOffice %></td>
+            </tr>
+            <% }) %>
+          </table>
+        </div>
+    </main>
+  </body>
+</html>
