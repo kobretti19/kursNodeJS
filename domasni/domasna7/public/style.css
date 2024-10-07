@@ -2,8 +2,10 @@ form,
 .form-fields {
   display: flex;
   flex-direction: column;
+  align-items: start;
+  justify-self: start;
   width: 20%;
-  text-align: center;
+
   margin: auto;
 }
 body {
@@ -12,7 +14,16 @@ body {
   color: aliceblue;
   font-size: large;
 }
-
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+}
 tr:hover {
   background-color: coral;
 }

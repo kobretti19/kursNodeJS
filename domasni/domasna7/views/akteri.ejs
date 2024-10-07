@@ -23,10 +23,10 @@
 <main>
   <div class="container_form">
     <form action="/ruta/akteri" method="post">
-      <label for="poster">poster</label>
-      <input type="text" name="poster" />
-      <label for="actimg">NAME</label>
-      <input type="text" name="actimg" required />
+      <label for="actimg">actimg</label>
+      <input type="text" name="actimg" />
+      <label for="actors">NAME</label>
+      <input type="text" name="actors" required />
       <label for="genre">genre</label>
       <input type="text" name="genre" />
       <label for="rating">RATING</label>
@@ -43,7 +43,7 @@
     <th>GENRE</th>
     <th>RATING</th>
   </tr>
-  <% filmovi.forEach(s => { %>
+  <% movies.forEach(s => { %>
   <tr>
     <td><%= s.id %></td>
     <td><img src="<%= s.actimg %>" alt="" border=3 height=100 width=100></img></td>
