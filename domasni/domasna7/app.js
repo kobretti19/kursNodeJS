@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/ruta/homepage', (req, res) => {
   res.render('homepage');
 });
+
 app.route('/ruta/akteri').get(getActors).post(addActor);
 app.route('/ruta/filmovi').get(getMovies).post(addMovie);
 
