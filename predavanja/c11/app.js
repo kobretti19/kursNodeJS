@@ -1,5 +1,5 @@
 const express = require("express");
-const formular = require("./controllers/formular");
+const controllerCars = require("./controllers/controllerCars");
 
 const app = express();
 
@@ -8,10 +8,10 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/studenti", formular.getStudenti);
-app.get("/form", formular.getForm);
-app.post("/form", formular.postForm);
-app.get("/brishi/:i", formular.getBrishi);
+app.get("/studenti", controllerCars.getStudenti);
+app.get("/form", controllerCars.getForm);
+app.post("/form", controllerCars.postForm);
+app.get("/brishi/:i", controllerCars.getBrishi);
 
 app.listen(10000, (err) => {
   if (err) return console.log(err);

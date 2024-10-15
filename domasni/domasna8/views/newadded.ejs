@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADD-NEW-CAR</title>
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <header><%- include('partials/header') %></header>
+  <body>
+    <main>
+      <table border="1" width="100%">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Miles per Galon</th>
+          <th>HorsePower</th>
+          <th>Origin</th>
+          <th>Acceleration</th>
+          <th>Delete</th>
+        </tr>
+        <% data.forEach((car, i) => { %>
+        <tr>
+          <td><%= i +1 %></td>
+          <td><%= car.Name %></td>
+          <td><%= car.Miles_per_Gallon %></td>
+          <td><%= car.Horsepower %></td>
+          <td><%= car.Origin %></td>
+          <td><%= car.Acceleration %></td>
+          <td>
+            <a href="/deletenew/<%=i  %>">remove</a>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+    </main>
+  </body>
+</html>

@@ -1,12 +1,12 @@
-const studenti = require('../models/studenti');
+const studenti = require("../models/studenti");
 
 const getStudenti = async (req, res) => {
   const data = await studenti.list();
-  res.render('studenti', { data });
+  res.render("studenti", { data });
 };
 
 const getForm = async (req, res) => {
-  res.render('formular');
+  res.render("controllerCars");
 };
 
 const postForm = async (req, res) => {
@@ -16,13 +16,13 @@ const postForm = async (req, res) => {
     prosek: req.body.prosek,
   };
   await studenti.add(data);
-  res.redirect('/studenti');
+  res.redirect("/studenti");
 };
 
 const getBrishi = async (req, res) => {
   console.log(req.params);
   await studenti.remove(+req.params.i);
-  res.redirect('/studenti');
+  res.redirect("/studenti");
 };
 
 module.exports = {

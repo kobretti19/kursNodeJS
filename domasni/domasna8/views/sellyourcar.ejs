@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formular</title>
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <form class="form" action="/sellyourcar" method="post">
+      <input type="text" name="name" placeholder="Name" />
+      <input type="text" name="miles" placeholder="Miles per Gallon" />
+      <input type="text" name="horsepower" placeholder="horsepower" />
+      <input type="text" name="origin" placeholder="Origin" />
+      <input type="text" name="acceleration" placeholder="Acceleration" />
+      <br />
+      <button class="btn-add" type="submit">ADD NEW CAR</button>
+    </form>
+  </body>
+</html>

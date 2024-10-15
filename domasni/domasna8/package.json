@@ -6,11 +6,12 @@
     "start": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Petroski Martin",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "mongoose": "^8.7.1"
   }
 }

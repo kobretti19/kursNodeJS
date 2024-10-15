@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const routeJson = path.join(__dirname, "../data/cars.json");
-const newDataJson = path.join(__dirname, "../data/");
+const newDataJson = path.join(__dirname, "../data/newadded.json");
 const takeData = async () => {
   return new Promise((success, fail) => {
     fs.readFile(routeJson, "utf-8", (err, data) => {
@@ -10,8 +10,24 @@ const takeData = async () => {
     });
   });
 };
+const takeNewData = async () => {
+  return new Promise((success, fail) => {
+    fs.readFile(newDataJson, "utf-8", (err, data) => {
+      if (err) return fail(err);
+      return success(data);
+    });
+  });
+};
 
-const writeData = async (data) => {
+exports.writeData = async (data) => {
+  return new Promise((success, fail) => {
+    fs.writeFile(routeJson, data, "utf-8", (err) => {
+      if (err) return fail(err);
+      return success();
+    });
+  });
+};
+exports.writeNewData = async (data) => {
   return new Promise((success, fail) => {
     fs.writeFile(newDataJson, data, "utf-8", (err) => {
       if (err) return fail(err);
@@ -20,28 +36,34 @@ const writeData = async (data) => {
   });
 };
 
-const listCars = async () => {
+exports.listCars = async () => {
   const file = await takeData();
   const fileData = JSON.parse(file);
   return fileData;
 };
-
-const addCar = async (data) => {
-  const file = await takeData();
+exports.listNewCars = async () => {
+  const file = await takeNewData();
   const fileData = JSON.parse(file);
-  fileData.push(data);
-  await writeData(JSON.stringify(fileData));
+  return fileData;
 };
 
-const removeCar = async (i) => {
+exports.addNew = async (data) => {
+  const file = await takeNewData();
+  const fileData = JSON.parse(file);
+  fileData.push(data);
+  await writeNewData(JSON.stringify(fileData));
+};
+
+exports.remove = async (i) => {
   const file = await takeData();
   const fileData = JSON.parse(file);
   let newFileData = fileData.filter((_, index) => index !== i);
   await writeData(JSON.stringify(newFileData));
 };
-
-module.exports = {
-  listCars,
-  addCar,
-  removeCar,
+exports.removeNewCars = async (i) => {
+  const file = await takeNewData();
+  const fileData = JSON.parse(file);
+  console.log(fileData);
+  const newRemovedData = fileData.filter((_, index) => index !== i);
+  await writeNewData(JSON.stringify(newRemovedData));
 };

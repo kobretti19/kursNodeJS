@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CARS-FOR-SALE</title>
+    <link rel="stylesheet" href="global.css" />
   </head>
   <body>
     <header><%- include('partials/header') %></header>
     <table border="1" width="100%">
       <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Miles per Galon</th>
         <th>HorsePower</th>
@@ -18,6 +20,7 @@
       </tr>
       <% data.forEach((car, i) => { %>
       <tr>
+        <td><%= i +1 %></td>
         <td><%= car.Name %></td>
         <td><%= car.Miles_per_Gallon %></td>
         <td><%= car.Horsepower %></td>

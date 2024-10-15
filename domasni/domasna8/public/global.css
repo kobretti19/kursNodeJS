@@ -1,0 +1,129 @@
+body,
+html {
+  height: 100%;
+}
+
+.bg-image {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/032/935/385/non_2x/car-driving-on-green-grass-surrounded-by-nature-free-photo.jpg");
+  background-position: 10%;
+  height: 100vh;
+  z-index: 1;
+  display: block;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+.content {
+  position: fixed;
+  left: 30%;
+  top: 30%;
+  z-index: 9999;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: white;
+  text-align: center;
+  font-size: large;
+}
+.navbar {
+  height: 100px;
+  width: 100%;
+  background: #45655d;
+  /* margin-bottom: 20px; */
+}
+
+.logo {
+  padding-top: 7px;
+  padding-left: 10px;
+  width: 50px;
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar ul li {
+  float: left;
+  height: 100%;
+  width: 120px;
+  margin: 10px;
+  padding: 7px 15px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar ul li a:hover {
+  display: block;
+  background-color: #c6ecd6;
+}
+input {
+  margin: 15px 23%;
+  width: 50%;
+  padding: 10px;
+  /* margin: auto; */
+}
+body,
+td,
+th {
+  color: #333;
+}
+
+.btn-add {
+  background-color: #4b795e;
+  background-image: linear-gradient(#4b795e, #329ca0);
+  border: 1px solid #4b795e;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 7px 15px;
+  text-align: center;
+  transition: box-shadow 0.05s ease-in-out, opacity 0.05s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 15%;
+  margin: 20px 40%;
+  border-radius: 10px;
+}
+
+.button-25:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
+    rgba(0, 0, 0, 0.4) 0 1px 2px;
+  text-decoration: none;
+  transition-duration: 0.15s, 0.15s;
+}
+
+.button-25:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.button-25:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button-25:disabled:active {
+  pointer-events: none;
+}
+
+.button-25:disabled:hover {
+  box-shadow: none;
+}

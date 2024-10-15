@@ -1,5 +1,5 @@
 const express = require("express");
-const formular = require("./controller/formular");
+const controllerCars = require("./controller/controllerCars");
 
 const app = express();
 
@@ -50,8 +50,8 @@ app.get("/test", (req, res) => {
 app.get("/", (req, res) => {
   res.render("index", data);
 });
-app.get("/", formular.getView);
-app.post("/", formular.postForm);
+app.get("/", controllerCars.getView);
+app.post("/", controllerCars.postForm);
 const port = 10000;
 
 app.listen(port, (err) => {
