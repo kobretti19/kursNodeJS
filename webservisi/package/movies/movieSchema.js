@@ -12,7 +12,6 @@ const movieSchema = new mongoose.Schema({
   year: {
     type: Number,
     min: 1900,
-    max: new Date.getFullYear(),
   },
   genre: {
     type: String,

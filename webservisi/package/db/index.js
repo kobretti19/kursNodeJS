@@ -1,12 +1,19 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
+dotenv.config({ path: `${__dirname}/../../config.env` });
+
+const DB = process.env.DATABASE.replace(
+  "<PASSWORD>",
+  process.env.DATABASE_PASSWORD
+);
+console.log(process.env.DATABASE_PASSWORD);
 exports.init = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://martinpetroski:mb5bsXfWJat6w2rZ@cluster0.42th8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/"
-    );
+    await mongoose.connect(DB);
     console.log("successfully conected to db");
   } catch (err) {
     console.log(err.message);
   }
 };
+//TODO:da se kreira
