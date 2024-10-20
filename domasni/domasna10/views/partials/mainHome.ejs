@@ -1,0 +1,15 @@
+<% movies.forEach((movie)=>{%>
+<div class="movies-container">
+  <img
+    class="img-tag overlay"
+    src="<%=movie.image%>"
+    height="100%"
+    width="100%"
+  />
+  <h2 class="title-text"><%=movie.title%></h2>
+  <div class="top-right"><p><%=movie.rating %> ⭐</p></div>
+  <div class="readmore-link">
+    <a href="/homepage/<%=movie.id %>">more....</a>
+  </div>
+</div>
+<%}) %>
