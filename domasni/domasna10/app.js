@@ -11,5 +11,9 @@ app.get("/homepage", moviesController.getAll);
 app.get("/addmovie", moviesController.viewAddMovie);
 app.post("/addmovie", moviesController.addNew);
 app.get("/homepage/:id", moviesController.getOne);
+app.get("/comedy", moviesController.findComedy);
+app.get("/triller", moviesController.findTriller);
+app.get("/action", moviesController.findAction);
+app.get("/newmovies", moviesController.findNewMovies);
 
 module.exports = app;

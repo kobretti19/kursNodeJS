@@ -3,7 +3,7 @@ const Movie = require("../pkg/movieSchema");
 exports.getAll = async (req, res) => {
   try {
     const movies = await Movie.find();
-    console.log(movies);
+
     res.render("homepage", { movies: movies });
   } catch (err) {
     res.status(404).json({
@@ -94,6 +94,58 @@ exports.addNew = async (req, res) => {
 exports.viewAddMovie = async (req, res) => {
   try {
     res.render("addmovie");
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
+exports.findTriller = async (req, res) => {
+  try {
+    const all = await Movie.find();
+    const movies = all.filter((el) => el.triller.includes("Thriller"));
+
+    res.render("homepage", { movies: movies });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
+exports.findComedy = async (req, res) => {
+  try {
+    const all = await Movie.find();
+    const movies = all.filter((el) => el.triller.includes("Comedy"));
+
+    res.render("homepage", { movies: movies });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
+exports.findAction = async (req, res) => {
+  try {
+    const all = await Movie.find();
+    const movies = all.filter((el) => el.triller.includes("Action"));
+
+    res.render("homepage", { movies: movies });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
+exports.findNewMovies = async (req, res) => {
+  try {
+    const all = await Movie.find();
+    const movies = all.filter((el) => el.year >= new Date().getFullYear());
+
+    res.render("homepage", { movies: movies });
   } catch (err) {
     res.status(404).json({
       status: "fail",
