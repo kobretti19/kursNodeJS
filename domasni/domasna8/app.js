@@ -9,21 +9,22 @@ mongoose
   .then((con) => {
     console.log("DB connection successfull");
   });
-const carsSchema = new mongoose.Schema({
-  Name: {
-    type: String,
-    required: [true, "A car must have a name"],
-  },
-  Acceleration: {
-    type: Number,
-    default: 10.5,
-  },
-  HorsePower: {
-    type: Number,
-    required: [true, "Car must to have a horsepower"],
-  },
-});
-const Car = mongoose.model("NewCars", carsSchema);
+// const carsSchema = new mongoose.Schema({
+//   Name: {
+//     type: String,
+//     required: [true, "A car must have a name"],
+//   },
+//   Acceleration: {
+//     type: Number,
+//     default: 10.5,
+//   },
+//   HorsePower: {
+//     type: Number,
+//     required: [true, "Car must to have a horsepower"],
+//   },
+// });
+// const Car = mongoose.model("NewCars", carsSchema);
+
 app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");

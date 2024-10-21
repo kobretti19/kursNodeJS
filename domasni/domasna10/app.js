@@ -14,6 +14,6 @@ app.get("/homepage/:id", moviesController.getOne);
 app.get("/comedy", moviesController.findComedy);
 app.get("/triller", moviesController.findTriller);
 app.get("/action", moviesController.findAction);
-app.get("/newmovies", moviesController.findNewMovies);
+app.get("/latest", moviesController.findNewMovies);
 
 module.exports = app;

@@ -98,8 +98,8 @@ exports.addHome = async (req, res) => {
 exports.searchMovie = async (req, res) => {
   try {
     const movies = await Movie.findById(req.params.id);
-
-    res.render("movies", { movies: movies });
+    console.log(movies);
+    res.render("movies", { movies });
   } catch (err) {
     res.status(404).json({
       status: "fail",

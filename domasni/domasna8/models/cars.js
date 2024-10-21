@@ -19,7 +19,7 @@ const takeNewData = async () => {
   });
 };
 
-exports.writeData = async (data) => {
+const writeData = async (data) => {
   return new Promise((success, fail) => {
     fs.writeFile(routeJson, data, "utf-8", (err) => {
       if (err) return fail(err);
@@ -27,7 +27,7 @@ exports.writeData = async (data) => {
     });
   });
 };
-exports.writeNewData = async (data) => {
+const writeNewData = async (data) => {
   return new Promise((success, fail) => {
     fs.writeFile(newDataJson, data, "utf-8", (err) => {
       if (err) return fail(err);
