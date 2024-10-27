@@ -104,9 +104,12 @@ exports.viewAddMovie = async (req, res) => {
 exports.findTriller = async (req, res) => {
   try {
     const all = await Movie.find();
-    const movies = all.filter((el) => el.triller.includes("Thriller"));
+    console.log(req.query);
+    const triller = "Triller";
+    const movies = all.filter((el, i) => el.triller == triller);
+    console.log(movies);
 
-    res.render("homepage", { movies: movies });
+    res.render("homepage", { movies: all });
   } catch (err) {
     res.status(404).json({
       status: "fail",
