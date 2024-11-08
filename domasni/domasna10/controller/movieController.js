@@ -104,9 +104,8 @@ exports.viewAddMovie = async (req, res) => {
 exports.findTriller = async (req, res) => {
   try {
     const all = await Movie.find();
-    console.log(req.query);
-    const triller = "Triller";
-    const movies = all.filter((el, i) => el.triller == triller);
+
+    const movies = all.filter((el, i) => el.triller);
     console.log(movies);
 
     res.render("homepage", { movies: all });
@@ -120,6 +119,7 @@ exports.findTriller = async (req, res) => {
 exports.findComedy = async (req, res) => {
   try {
     const all = await Movie.find();
+
     const movies = all.filter((el) => el.triller.includes("Comedy"));
 
     res.render("homepage", { movies: movies });
